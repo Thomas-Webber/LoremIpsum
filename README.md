@@ -1,5 +1,4 @@
 # loremIpsum
-Angular4 web application - a website for helping people to generate fake content
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
 

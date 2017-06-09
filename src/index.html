@@ -4,11 +4,18 @@
   <meta charset="utf-8">
   <title>LoremIpsum</title>
   <base href="/">
-
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets//favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets//favicon-16x16.png">
+  <link rel="manifest" href="/assets//manifest.json">
+  <link rel="mask-icon" href="/assets//safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link href="/assets/css/indigo-pink.css" rel="stylesheet">
 </head>
 <body>
-  <app-root>Loading...</app-root>
+  <app-root><style>.circular,.showbox{top:0;bottom:0;left:0;right:0}.showbox{position:absolute;padding:5%}.loader{position:relative;margin:0 auto;width:100px}.loader:before{content:'';display:block;padding-top:100%}.circular{-webkit-animation:rotate 2s linear infinite;animation:rotate 2s linear infinite;height:100%;-webkit-transform-origin:center center;transform-origin:center center;width:100%;position:absolute;margin:auto}.path{stroke-dasharray:1,200;stroke-dashoffset:0;-webkit-animation:dash 1.5s ease-in-out infinite,color 6s ease-in-out infinite;animation:dash 1.5s ease-in-out infinite,color 6s ease-in-out infinite;stroke-linecap:round}@-webkit-keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes rotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@-webkit-keyframes dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}100%{stroke-dasharray:89,200;stroke-dashoffset:-124px}}@keyframes dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}100%{stroke-dasharray:89,200;stroke-dashoffset:-124px}}@-webkit-keyframes color{0%,100%,80%,90%{stroke:rgba(0,0,0,.6)}40%{stroke:rgba(0,0,0,.3)}66%{stroke:rgba(0,0,0,.7)}}@keyframes color{0%,100%,80%,90%{stroke:rgba(0,0,0,.6)}40%{stroke:rgba(0,0,0,.3)}66%{stroke:rgba(0,0,0,.7)}}</style>
+    <div class="showbox"> <div class="loader"> <svg class="circular" viewBox="25 25 50 50"> <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/> </svg> </div></div></app-root>
 </body>
 </html>

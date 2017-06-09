@@ -1,0 +1,14 @@
+md-sidenav {
+  width: 200px;
+}
+
+md-sidenav{
+	display: flex;
+	flex-direction: column;
+	box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.my-content{
+	display: flex;
+	flex-direction: column;
+}

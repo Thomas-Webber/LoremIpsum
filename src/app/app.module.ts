@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-
-import {MdButtonModule, MdSidenavModule, MdListModule} from '@angular/material';
-
+import 'hammerjs';
+import {MdButtonModule, MdSidenavModule, MdListModule, MdSliderModule, MdTooltipModule} from '@angular/material';
+import { ParticlesModule } from 'angular-particle';
 
 
 import { AppComponent } from './app.component';
@@ -36,8 +36,9 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule, BrowserAnimationsModule, 
-    MdButtonModule, MdSidenavModule, MdListModule,
-    RouterModule.forRoot(appRoutes)
+    MdButtonModule, MdSidenavModule, MdListModule, MdSliderModule, MdTooltipModule,
+    RouterModule.forRoot(appRoutes),
+    ParticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

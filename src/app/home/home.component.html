@@ -12,10 +12,27 @@
 		    <a md-line md-button>TITLE</a>
 		  </md-list-item>
 		</md-list>
+		<div id="particle-container">
+			<particles [style]="myStyle" [width]="particleWidth" [height]="particleHeight" [params]="myParams"></particles>
+		</div>
     </md-sidenav>
 
-    <div class="my-content" style="z-index: 1">
-    	<h3>Paragraphe</h3>
+    <div class="my-content bg5" style="z-index: 1">
+    	
+		<section style="background-color: white">
+    		<div class="generator-headcontainer">
+	    		<h3>Paragraphe</h3>
+	    		<span mdTooltip="Number of paragraphe" mdTooltipPosition="above">
+	    			<md-slider warn min="1" max="20" step="1" value="5" thumb-label="true"></md-slider>
+	    		</span>
+	    		<span mdTooltip="Size of each paragraphe" mdTooltipPosition="above">
+	    			<md-slider warn min="1" max="20" step="1" value="5" thumb-label="true" ></md-slider>
+	    		</span>
+    		</div>
+    		<article class="generator-content mat-elevation-z1">
+    			{{outputParagraphe}}
+    		</article>
+		</section>
     	<h3>List</h3>
     	<h3>Title</h3>
     </div>

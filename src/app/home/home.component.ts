@@ -20,7 +20,9 @@ export class HomeComponent implements OnInit {
   tooltipPosition = "above";
 
   outputParagraphe = [];
+  outputParagrapheString = "";
   outputList = [];
+  outputListString = "";
   outputWords = "";
 
   wordNumberValue = 5;
@@ -54,6 +56,7 @@ export class HomeComponent implements OnInit {
     for (var i = 0; i < this.paragrapheNumberValue; i++)
       tmp.push(this.generateWords(this.paragrapheSizeValue));
     this.outputParagraphe = tmp;
+    this.outputParagrapheString = this.outputParagraphe.join('\n\n');
   }
 
   reloadLists(){
@@ -61,6 +64,8 @@ export class HomeComponent implements OnInit {
     for (var i = 0; i < this.listNumberValue; i++)
       tmp.push(this.generateWords(this.listSizeValue));
     this.outputList = tmp;
+    this.outputListString = '• ' + this.outputList.join('\n\n• ');
+
   }
 
   ngOnInit() {
@@ -73,4 +78,7 @@ export class HomeComponent implements OnInit {
     this.reloadLists();
   }
 
+  successClipboard(arg){
+    console.log(arg);
+  }
 }

@@ -11,6 +11,8 @@ import { ParticlesModule } from 'angular-particle';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { ClipboardModule } from 'ngx-clipboard';
+
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -35,8 +37,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule, BrowserAnimationsModule, 
-    MdButtonModule, MdSidenavModule, MdListModule, MdSliderModule, MdTooltipModule,
+    HttpModule, BrowserAnimationsModule, ClipboardModule,
+    MdButtonModule, MdSidenavModule, MdListModule, MdSliderModule, MdTooltipModule, 
     RouterModule.forRoot(appRoutes),
     ParticlesModule
   ],

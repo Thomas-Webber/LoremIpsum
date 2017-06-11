@@ -17,9 +17,9 @@
 		</div>
     </md-sidenav>
 
-    <div class="my-content bg5" style="z-index: 1">
+    <div class="my-content bg3" style="z-index: 1">
     	
-		<section id="paragraphe" style="">
+		<section id="paragraphe" class="mat-elevation-z5">
     		<div class="generator-headcontainer">
 	    		<h3>Paragraphe</h3>
 	    		<span mdTooltip="Number of paragraphes" mdTooltipPosition="above">
@@ -28,23 +28,36 @@
 	    		<span mdTooltip="Size of each paragraphe" mdTooltipPosition="above">
 	    			<md-slider (change)="reloadParagraphes()" warn min="0" max="30" step="5" thumb-label="true" [(ngModel)]="paragrapheSizeValue" ></md-slider>
 	    		</span>
+	    		<span mdTooltip="Copy to clipboard" mdTooltipPosition="above">
+	    			<button md-button [ngxClipboard]="paragraphes"> <img src="/assets/clipboard.svg" style="height: 20px;"
+	    				(cbOnSuccess)="successClipboard($event)" >
+	    			</button>
+	    		</span>
     		</div>
-    		<article class="generator-content mat-elevation-z1">
+    		<textarea #paragraphes [(ngModel)]="outputParagrapheString" class="fake-hidden"></textarea>
+    		<article class="generator-content mat-elevation-z4" >
     			<p *ngFor="let t of outputParagraphe" >{{t}}</p>
     		</article>
 		</section>
-		<section id="words" style="">
+		<section id="words" class="mat-elevation-z5">
     		<div class="generator-headcontainer">
 	    		<h3>Words</h3>
 	    		<span mdTooltip="Number of words" mdTooltipPosition="above">
 	    			<md-slider (change)="reloadWords()" warn min="0" max="30" step="5" [(ngModel)]="wordNumberValue" thumb-label="true"></md-slider>
 	    		</span>
+	    		<span style="width: 112px"></span>
+	    		<span mdTooltip="Copy to clipboard" mdTooltipPosition="above">
+	    			<button md-button [ngxClipboard]="words"> <img src="/assets/clipboard.svg" style="height: 20px;"
+	    				(cbOnSuccess)="successClipboard($event)" >
+	    			</button>
+	    		</span>
     		</div>
-    		<article class="generator-content mat-elevation-z1">
+    		<textarea #words [(ngModel)]="outputWords" class="fake-hidden"></textarea>
+    		<article class="generator-content mat-elevation-z4">
     			{{outputWords}}
     		</article>
 		</section>
-		<section id="list" style="">
+		<section id="list" class="mat-elevation-z5">
     		<div class="generator-headcontainer">
 	    		<h3>List</h3>
 	    		<span mdTooltip="Number of paragraphes" mdTooltipPosition="above">
@@ -53,8 +66,14 @@
 	    		<span mdTooltip="Size of each paragraphe" mdTooltipPosition="above">
 	    			<md-slider (change)="reloadLists()" warn min="0" max="30" step="5" thumb-label="true" [(ngModel)]="listSizeValue" ></md-slider>
 	    		</span>
+	    		<span mdTooltip="Copy to clipboard" mdTooltipPosition="above">
+	    			<button md-button [ngxClipboard]="lists"> <img src="/assets/clipboard.svg" style="height: 20px;"
+	    				(cbOnSuccess)="successClipboard($event)" >
+	    			</button>
+	    		</span>
     		</div>
-    		<article class="generator-content mat-elevation-z1">
+    		<textarea #lists [(ngModel)]="outputListString" class="fake-hidden"></textarea>
+    		<article class="generator-content mat-elevation-z4">
     			<ul>
     				<li *ngFor="let t of outputList" >{{t}}</li>
     			</ul>

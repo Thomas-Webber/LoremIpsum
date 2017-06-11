@@ -28,6 +28,8 @@ md-sidenav{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 section{
@@ -46,7 +48,7 @@ article{
 	outline: 0;
     word-break: normal;
     word-wrap: break-word;
-    font-size: 12px;
+    font-size: 13px;
     text-align: justify;
     text-justify: inter-word;
 }
@@ -57,4 +59,10 @@ article ul {
 
 article ul li{
 	margin: 10px 0;
+}
+
+.fake-hidden{
+	overflow:hidden; 
+	z-index: -1;
+	position: absolute;
 }

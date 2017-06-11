@@ -2,6 +2,13 @@
 
 body{
     font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    color: rgba(0,0,0,.8);
+    font-size: 18px;
+    line-height: 1.4;
+    background-color: rgb(244, 244, 244);
 }
 
 html, body, material-app, md-sidenav-container, .my-content {
@@ -30,8 +37,43 @@ app-contact, app-home, app-about{
     justify-content: center;    /* vertical align */
 }
 
+app-about{
+    background-color: #028090
+}
+
 img {
    max-width: 100%;
    height: auto;
    vertical-align: middle;
+}
+
+article{
+    padding: 10px;
+    outline: 0;
+    word-break: normal;
+    word-wrap: break-word;
+    font-size: 13px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+
+section{
+    width: 80%;
+    margin: 40px 5%;
+    padding: 15px;
+    max-width: 720px;
+    background-color: white;
+}
+
+section h3 {
+    margin: 0;
+}
+
+article ul {
+    padding: 10px;
+}
+
+article ul li{
+    margin: 10px 0;
 }

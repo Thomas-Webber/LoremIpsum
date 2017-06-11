@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { TextService } from '../text.service';
 import { PARTICLE_PARAMETERS } from './particle';
 import { FormControl }            from '@angular/forms';
@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   particleHeight: number = 100;
   words = {};
   tooltipPosition = "above";
+  sidebarOpened = true;
 
   outputParagraphe = [];
   outputParagrapheString = "";
@@ -76,9 +77,22 @@ export class HomeComponent implements OnInit {
     this.reloadWords();
     this.reloadParagraphes();
     this.reloadLists();
+
+    this.sidebarOpened = (window.innerWidth < 700) ? false : true;
   }
 
   successClipboard(arg){
     console.log(arg);
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    var width = event.target.innerWidth;
+    if (width < 700)
+      this.sidebarOpened = false;
+    else
+      this.sidebarOpened = true;
+
+  }
+
 }

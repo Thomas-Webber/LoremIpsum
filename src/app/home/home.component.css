@@ -20,7 +20,8 @@ md-sidenav{
 }
 
 #particle-container{
-	    flex: 1;
+	flex: 1;
+	max-height: 700px;
 }
 
 .generator-headcontainer{
@@ -29,12 +30,12 @@ md-sidenav{
 	align-items: center;
 }
 
-
 section{
-    margin: 40px auto;
-    padding: 10px;
+	width: 80%;
+    margin: 40px 5%;
+    padding: 15px;
     max-width: 720px;
-    background-color: white
+    background-color: white;
 }
 section h3 {
 	margin: 0;
@@ -48,4 +49,12 @@ article{
     font-size: 12px;
     text-align: justify;
     text-justify: inter-word;
+}
+
+article ul {
+	padding: 10px;
+}
+
+article ul li{
+	margin: 10px 0;
 }

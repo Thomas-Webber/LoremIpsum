@@ -1,109 +1,76 @@
 import { Component, OnInit } from '@angular/core';
+import { TextService } from '../text.service';
+import { PARTICLE_PARAMETERS } from './particle';
+import { FormControl }            from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [TextService]
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+  constructor(private textService: TextService) { }
 
   myStyle: object = {};
   myParams: object = {};
   particleWidth: number = 100;
   particleHeight: number = 100;
-
+  words = {};
   tooltipPosition = "above";
 
-  outputParagraphe = "Itaque tum Scaevola cum in eam ipsam mentionem incidisset, exposuit nobis sermonem Laeli de amicitia habitum ab illo secum et cum altero genero, C. Fannio Marci filio, paucis diebus post mortem Africani. Eius disputationis sententias memoriae mandavi, quas hoc libro exposui arbitratu meo; quasi enim ipsos induxi loquentes, ne 'inquam' et 'inquit' saepius interponeretur, atque ut tamquam a praesentibus coram haberi sermo videretur.";
+  outputParagraphe = [];
+  outputList = [];
+  outputWords = "";
+
+  wordNumberValue = 5;
+
+  paragrapheNumberValue = 1;
+  paragrapheSizeValue = 15;
+
+  listNumberValue = 5;
+  listSizeValue = 25;
+
+  private getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  private generateWords(value){
+    if (value == 25){
+      var data1 = this.words['5'];
+      var data2 = this.words['20'];
+      return data2[this.getRandomInt(0, data2.length)] + ' ' + data1[this.getRandomInt(0, data1.length)];
+    }
+    var data = this.words[value];
+    return data[this.getRandomInt(0, data.length)];
+  }
+
+  reloadWords(){
+    this.outputWords = this.generateWords(this.wordNumberValue);
+  }
+
+  reloadParagraphes(){
+    var tmp = []
+    for (var i = 0; i < this.paragrapheNumberValue; i++)
+      tmp.push(this.generateWords(this.paragrapheSizeValue));
+    this.outputParagraphe = tmp;
+  }
+
+  reloadLists(){
+    var tmp = []
+    for (var i = 0; i < this.listNumberValue; i++)
+      tmp.push(this.generateWords(this.listSizeValue));
+    this.outputList = tmp;
+  }
 
   ngOnInit() {
+    this.words = this.textService.getWords();
     this.myStyle = {'display': 'relative', 'width': '100%', 'height': '100%'};
-    this.myParams = {
-      "particles": {
-        "number": {
-          "value": 300,
-          "density": {
-            "enable": true,
-            "value_area": 300
-          }
-        },
-        "color": {
-          "value": "#ffffff"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#f2f2f2"
-          },
-        },
-        "opacity": {
-          "value": 0.5,
-          "anim": {
-            "enable": true,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 1,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 100,
-          "color": "#ffffff",
-          "opacity": 0.1,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 1,
-          "direction": "none",
-          "random": true,
-          "straight": false,
-          "out_mode": "bounce",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "bubble"
-          },
-          "onclick": {
-            "enable": false,
-            "mode": "bubble"
-          },
-          "resize": true
-        },
-        "modes": {
-          "bubble": {
-            "distance": 150,
-            "size": 2,
-            "duration": 1,
-            "opacity": 0.6,
-            "speed": 5
-          },
-        }
-      },
-      "retina_detect": true
-      }
-    }
+    this.myParams = PARTICLE_PARAMETERS;
+
+    this.reloadWords();
+    this.reloadParagraphes();
+    this.reloadLists();
+  }
 
 }

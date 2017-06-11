@@ -3,13 +3,13 @@
 		<!-- two line list -->
 		<md-list>
 		  <md-list-item>
-		    <a md-line md-button>PARAGRAPHE</a>
+		    <a href="/home#paragraphe" md-line md-button>PARAGRAPHE</a>
 		  </md-list-item>
 		  <md-list-item>
-		    <a md-line md-button>LIST</a>
+		    <a href="/home#words" md-line md-button>WORDS</a>
 		  </md-list-item>
 		  <md-list-item>
-		    <a md-line md-button>TITLE</a>
+		    <a href="/home#list" md-line md-button>LIST</a>
 		  </md-list-item>
 		</md-list>
 		<div id="particle-container">
@@ -19,22 +19,49 @@
 
     <div class="my-content bg5" style="z-index: 1">
     	
-		<section style="background-color: white">
+		<section id="paragraphe" style="">
     		<div class="generator-headcontainer">
 	    		<h3>Paragraphe</h3>
-	    		<span mdTooltip="Number of paragraphe" mdTooltipPosition="above">
-	    			<md-slider warn min="1" max="20" step="1" value="5" thumb-label="true"></md-slider>
+	    		<span mdTooltip="Number of paragraphes" mdTooltipPosition="above">
+	    			<md-slider (change)="reloadParagraphes()" warn min="0" max="10" step="1" [(ngModel)]="paragrapheNumberValue" thumb-label="true"></md-slider>
 	    		</span>
 	    		<span mdTooltip="Size of each paragraphe" mdTooltipPosition="above">
-	    			<md-slider warn min="1" max="20" step="1" value="5" thumb-label="true" ></md-slider>
+	    			<md-slider (change)="reloadParagraphes()" warn min="0" max="30" step="5" thumb-label="true" [(ngModel)]="paragrapheSizeValue" ></md-slider>
 	    		</span>
     		</div>
     		<article class="generator-content mat-elevation-z1">
-    			{{outputParagraphe}}
+    			<p *ngFor="let t of outputParagraphe" >{{t}}</p>
     		</article>
 		</section>
-    	<h3>List</h3>
-    	<h3>Title</h3>
+		<section id="words" style="">
+    		<div class="generator-headcontainer">
+	    		<h3>Words</h3>
+	    		<span mdTooltip="Number of words" mdTooltipPosition="above">
+	    			<md-slider (change)="reloadWords()" warn min="0" max="30" step="5" [(ngModel)]="wordNumberValue" thumb-label="true"></md-slider>
+	    		</span>
+    		</div>
+    		<article class="generator-content mat-elevation-z1">
+    			{{outputWords}}
+    		</article>
+		</section>
+		<section id="list" style="">
+    		<div class="generator-headcontainer">
+	    		<h3>List</h3>
+	    		<span mdTooltip="Number of paragraphes" mdTooltipPosition="above">
+	    			<md-slider (change)="reloadLists()" warn min="0" max="10" step="1" [(ngModel)]="listNumberValue" thumb-label="true"></md-slider>
+	    		</span>
+	    		<span mdTooltip="Size of each paragraphe" mdTooltipPosition="above">
+	    			<md-slider (change)="reloadLists()" warn min="0" max="30" step="5" thumb-label="true" [(ngModel)]="listSizeValue" ></md-slider>
+	    		</span>
+    		</div>
+    		<article class="generator-content mat-elevation-z1">
+    			<ul>
+    				<li *ngFor="let t of outputList" >{{t}}</li>
+    			</ul>
+    		</article>
+		</section>
     </div>
     
+    
+	<app-footer></app-footer>
 </md-sidenav-container>

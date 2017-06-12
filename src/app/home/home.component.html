@@ -29,8 +29,7 @@
 	    			<md-slider (change)="reloadParagraphes()" warn min="0" max="30" step="5" thumb-label="true" [(ngModel)]="paragrapheSizeValue" ></md-slider>
 	    		</span>
 	    		<span mdTooltip="Copy to clipboard" mdTooltipPosition="above">
-	    			<button md-button [ngxClipboard]="paragraphes"> <img src="/assets/clipboard.svg" style="height: 20px;"
-	    				(cbOnSuccess)="successClipboard($event)" >
+	    			<button md-button [ngxClipboard]="paragraphes"> <img src="/assets/clipboard.svg" style="height: 20px;">
 	    			</button>
 	    		</span>
     		</div>
@@ -47,8 +46,7 @@
 	    		</span>
 	    		<span style="width: 112px"></span>
 	    		<span mdTooltip="Copy to clipboard" mdTooltipPosition="above">
-	    			<button md-button [ngxClipboard]="words"> <img src="/assets/clipboard.svg" style="height: 20px;"
-	    				(cbOnSuccess)="successClipboard($event)" >
+	    			<button md-button [ngxClipboard]="words"> <img src="/assets/clipboard.svg" style="height: 20px;">
 	    			</button>
 	    		</span>
     		</div>
@@ -67,8 +65,7 @@
 	    			<md-slider (change)="reloadLists()" warn min="0" max="30" step="5" thumb-label="true" [(ngModel)]="listSizeValue" ></md-slider>
 	    		</span>
 	    		<span mdTooltip="Copy to clipboard" mdTooltipPosition="above">
-	    			<button md-button [ngxClipboard]="lists"> <img src="/assets/clipboard.svg" style="height: 20px;"
-	    				(cbOnSuccess)="successClipboard($event)" >
+	    			<button md-button [ngxClipboard]="lists"> <img src="/assets/clipboard.svg" style="height: 20px;">
 	    			</button>
 	    		</span>
     		</div>

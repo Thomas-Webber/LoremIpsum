@@ -3,6 +3,7 @@
 deploy.sh
 
 # compiled output
+/src/dist
 /dist
 /tmp
 /out-tsc

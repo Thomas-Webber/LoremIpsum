@@ -3,6 +3,14 @@ import { TextService } from '../text.service';
 import { PARTICLE_PARAMETERS } from './particle';
 import { FormControl }            from '@angular/forms';
 
+interface MyEventTarget extends EventTarget {
+    innerWidth: number
+}
+
+interface MyEvent extends Event {
+    target: MyEventTarget;
+} 
+    
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,9 +28,9 @@ export class HomeComponent implements OnInit {
   tooltipPosition = "above";
   sidebarOpened = true;
 
-  outputParagraphe = [];
+  outputParagraphe: string[] = [];
   outputParagrapheString = "";
-  outputList = [];
+  outputList: string[] = [];
   outputListString = "";
   outputWords = "";
 
@@ -34,7 +42,7 @@ export class HomeComponent implements OnInit {
   listNumberValue = 5;
   listSizeValue = 25;
 
-  private getRandomInt(min, max) {
+  private getRandomInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
@@ -81,12 +89,9 @@ export class HomeComponent implements OnInit {
     this.sidebarOpened = (window.innerWidth < 700) ? false : true;
   }
 
-  successClipboard(arg){
-    console.log(arg);
-  }
-
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize(event: MyEvent) {
+    console.log(event);
     var width = event.target.innerWidth;
     if (width < 700)
       this.sidebarOpened = false;

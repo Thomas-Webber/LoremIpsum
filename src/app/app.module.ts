@@ -35,7 +35,9 @@ const appRoutes: Routes = [
     FooterComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({
+      appId: 'toh-universal'
+    }),
     FormsModule,
     HttpModule, BrowserAnimationsModule, ClipboardModule,
     MdButtonModule, MdSidenavModule, MdListModule, MdSliderModule, MdTooltipModule, 

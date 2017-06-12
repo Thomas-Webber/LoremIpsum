@@ -10,7 +10,7 @@ interface MyEventTarget extends EventTarget {
 interface MyEvent extends Event {
     target: MyEventTarget;
 } 
-    
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  private generateWords(value){
+  private generateWords(value: number){
     if (value == 25){
       var data1 = this.words['5'];
       var data2 = this.words['20'];
@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
   }
 
   reloadLists(){
-    var tmp = []
+    var tmp: string[] = []
     for (var i = 0; i < this.listNumberValue; i++)
       tmp.push(this.generateWords(this.listSizeValue));
     this.outputList = tmp;
